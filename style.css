@@ -160,6 +160,11 @@ nav {
   opacity: 0.5;
 }
 
+.thumbnail-images img.active {
+  border: 2px solid var(--color-orange);
+  opacity: 0.5;
+}
+
 .product-details {
   flex: 1;
 }
