@@ -41,6 +41,7 @@ addToCartBtn.addEventListener("click", () => {
       name: "Fall Limited Edition Sneakers",
       price: 125,
       quantity: quantity,
+      image: "images/image-product-1-thumbnail.jpg",
     };
     cartItems.push(cartItem);
     updateCart();
@@ -76,8 +77,9 @@ function updateCart() {
       cartItemElement.classList.add("cart-item");
 
       const thumbnailElement = document.createElement("img");
-      thumbnailElement.src = "images/image-product-1-thumbnail.jpg";
+      thumbnailElement.src = item.image;
       thumbnailElement.alt = "Product thumbnail";
+      thumbnailElement.classList.add("cart-thumbnail");
 
       const detailsElement = document.createElement("div");
       detailsElement.classList.add("cart-item-details");
@@ -94,7 +96,8 @@ function updateCart() {
 
       const deleteBtn = document.createElement("button");
       deleteBtn.classList.add("delete-btn");
-      deleteBtn.textContent = "Remove";
+      deleteBtn.innerHTML =
+        '<img src="images/icon-delete.svg" alt="Delete icon">';
       deleteBtn.addEventListener("click", () => {
         cartItems.splice(index, 1);
         updateCart();
@@ -103,10 +106,10 @@ function updateCart() {
       detailsElement.appendChild(nameElement);
       detailsElement.appendChild(priceElement);
       detailsElement.appendChild(totalElement);
-      detailsElement.appendChild(deleteBtn);
 
       cartItemElement.appendChild(thumbnailElement);
       cartItemElement.appendChild(detailsElement);
+      cartItemElement.appendChild(deleteBtn);
 
       cartContainer.appendChild(cartItemElement);
     });
@@ -120,6 +123,31 @@ function updateCart() {
   if (!document.body.contains(cartContainer)) {
     document.querySelector(".nav-right").appendChild(cartContainer);
   }
+
+  updateCartIcon();
+}
+
+function updateCartIcon() {
+  const cartItemsCount = cartItems.length;
+  const cartIconElement = document.querySelector(".cart-icon");
+  const cartCountElement = document.createElement("span");
+  cartCountElement.classList.add("cart-count");
+  cartCountElement.textContent = cartItemsCount;
+
+  if (cartItemsCount > 0) {
+    cartIconElement.appendChild(cartCountElement);
+    cartCountElement.style.backgroundColor = "var(--color-orange)";
+    cartCountElement.style.color = "var(--color-white)";
+    cartCountElement.style.padding = "0.25rem 0.5rem";
+    cartCountElement.style.borderRadius = "50%";
+    cartCountElement.style.fontSize = "0.75rem";
+    cartCountElement.style.marginLeft = "0.5rem";
+  } else {
+    const existingCartCount = cartIconElement.querySelector(".cart-count");
+    if (existingCartCount) {
+      existingCartCount.remove();
+    }
+  }
 }
 
 // Add styles for the cart container
@@ -127,10 +155,12 @@ const styles = document.createElement("style");
 styles.innerHTML = `
   .cart-container {
     position: absolute;
-    top: 70px;
-    right: 0;
+    top: 85px;
+    left: 850px;
     background-color: var(--color-white);
     width: 360px;
+    max-height: 500px;
+    overflow-y: auto;
     border-radius: 10px;
     box-shadow: 0 20px 50px -20px var(--color-black-75);
     padding: 1.5rem;
@@ -155,7 +185,14 @@ styles.innerHTML = `
   .cart-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 1rem;
+  }
+
+  .cart-thumbnail {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
   }
 
   .cart-item-details {
@@ -173,9 +210,13 @@ styles.innerHTML = `
 
   .delete-btn {
     background-color: transparent;
-    color: var(--color-grayish-blue);
     border: none;
     cursor: pointer;
+  }
+
+  .delete-btn img {
+    width: 16px;
+    height: 16px;
   }
 
   .checkout-btn {

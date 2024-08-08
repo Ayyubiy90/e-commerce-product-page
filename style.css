@@ -234,6 +234,7 @@ nav {
   padding: 1rem;
   border-radius: 10px;
   flex: 1;
+  max-width: 200px;
 }
 
 .quantity-selector button {
