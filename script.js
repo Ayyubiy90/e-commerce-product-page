@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartIcon = document.querySelector(".cart-icon");
   const cartContainer = document.querySelector(".cart-container");
   const hamburgerMenu = document.querySelector(".hamburger-menu");
+  const mobileMenu = document.querySelector(".mobile-menu");
   const navMenu = document.querySelector(".nav-menu");
   const prevButton = document.querySelector(".prev-image");
   const nextButton = document.querySelector(".next-image");
@@ -28,13 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mobile menu toggle
   hamburgerMenu.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
+    mobileMenu.classList.toggle("show");
+    hamburgerMenu.classList.toggle("active");
   });
 
   // Close mobile menu when clicking outside
   document.addEventListener("click", (e) => {
-    if (!navMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
-      navMenu.classList.remove("show");
+    if (!mobileMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+      mobileMenu.classList.remove("show");
+      hamburgerMenu.classList.remove("active");
     }
   });
 

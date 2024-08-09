@@ -411,15 +411,19 @@ footer {
 
   .hamburger-menu {
     display: block;
-    /* margin-right: 1rem; */
+    margin-right: 1rem;
     cursor: pointer;
     font-size: 1.5rem;
     z-index: 1001;
   }
 
+  .hamburger-icon,
+  .close-icon {
+    font-size: 1.5rem;
+  }
+
   .close-icon {
     display: none;
-    font-size: 1.5rem;
   }
 
   .hamburger-menu.active .hamburger-icon {
@@ -430,27 +434,32 @@ footer {
     display: block;
   }
 
-  .nav-menu {
+  .mobile-menu {
     position: fixed;
     top: 0;
     left: -250px;
     width: 250px;
     height: 100vh;
     background-color: var(--color-white);
-    flex-direction: column;
-    padding: 2rem;
+    padding: 5rem 2rem 2rem;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease;
     z-index: 1000;
   }
 
-  .nav-menu.show {
+  .mobile-menu.show {
     left: 0;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .nav-menu li {
     margin-right: 0;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
   }
 
   .nav-menu li a {
