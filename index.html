@@ -20,8 +20,9 @@
       <header>
         <nav>
           <div class="nav-left">
-            <img src="images/logo.svg" alt="Sneakers logo" class="logo" />
-            <ul>
+            <div class="hamburger-menu">☰</div>
+            <img src="images/logo.svg" alt="Sneakers logo" class="logo">
+            <ul class="nav-menu">
               <li><a href="#">Collections</a></li>
               <li><a href="#">Men</a></li>
               <li><a href="#">Women</a></li>
@@ -29,36 +30,36 @@
               <li><a href="#">Contact</a></li>
             </ul>
           </div>
-          
+    
           <div class="nav-right">
-            <img src="images/icon-cart.svg" alt="Cart icon" class="cart-icon" />
-            <img src="images/image-avatar.png" alt="User avatar" class="user-avatar" />
+            <img src="images/icon-cart.svg" alt="Cart icon" class="cart-icon">
+            <img src="images/image-avatar.png" alt="User avatar" class="user-avatar">
           </div>
         </nav>
       </header>
-
+    
       <main role="main">
         <div class="product-container">
           <div class="product-images">
             <div class="main-image">
-              <img src="images/image-product-1.jpg" alt="Product image 1" class="product-image" />
+              <img src="images/image-product-1.jpg" alt="Product image" class="product-image">
+              <div class="image-navigation">
+                <button class="prev-image">&#10094;</button>
+                <button class="next-image">&#10095;</button>
+              </div>
             </div>
-            
             <div class="thumbnail-images">
-              <img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" class="product-thumbnail active" />
-              <img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" class="product-thumbnail" />
-              <img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" class="product-thumbnail" />
-              <img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" class="product-thumbnail" />
+              <img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" class="product-thumbnail active">
+              <img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" class="product-thumbnail">
+              <img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" class="product-thumbnail">
+              <img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" class="product-thumbnail">
             </div>
           </div>
-          
+    
           <div class="product-details">
             <div class="company-name">Sneaker Company</div>
             <h1 class="product-name">Fall Limited Edition Sneakers</h1>
-            <p class="product-description">
-              These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.
-            </p>
-            
+            <p class="product-description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
             <div class="pricing">
               <div class="current-price">
                 <span class="price">$125.00</span>
@@ -74,7 +75,7 @@
                 <button class="plus-btn">+</button>
               </div>
               <button class="add-to-cart-btn">
-                <img src="images/icon-cart.svg" alt="Cart icon" />
+                <img src="images/icon-cart.svg" alt="Cart icon">
                 Add to cart
               </button>
             </div>
@@ -82,10 +83,9 @@
         </div>
       </main>
     
-      <footer>
-        <div class="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="https://github.com/Ayyubiy90">Abdullah</a>.
-        </div>
+      <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/Ayyubiy90">Abdullah</a>.
       </footer>
     </div>
     <script src="script.js"></script>

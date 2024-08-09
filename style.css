@@ -314,30 +314,104 @@ footer {
 
 /* Mobile Styles */
 @media (max-width: 375px) {
+  /* Header Styles */
   header {
     padding: 1.25rem;
   }
 
-  .nav-left .logo {
-    margin-right: 0.75rem;
+  nav {
+    position: relative;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .hamburger-menu {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+
+  .nav-left ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-left ul.show {
+    display: flex;
   }
 
   .nav-left ul li {
-    margin-right: 0.75rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
 
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .cart-icon {
+    margin-right: 1rem;
+  }
+
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Main Content Styles */
   .product-container {
     flex-direction: column;
-    margin: 1.5rem auto;
+    margin: 0;
     gap: 1.5rem;
   }
 
   .product-images {
     width: 100%;
+    position: relative;
   }
 
   .main-image {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  .main-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .image-navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+
+  .image-navigation button {
+    background-color: var(--color-white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
   }
 
   .thumbnail-images {
@@ -345,20 +419,27 @@ footer {
   }
 
   .product-details {
-    width: 100%;
-    padding: 0 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .company-name {
+    margin-bottom: 0.5rem;
   }
 
   .product-name {
     font-size: 1.75rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-description {
+    margin-bottom: 1.5rem;
   }
 
   .pricing {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
   }
 
   .current-price {
@@ -370,10 +451,12 @@ footer {
   }
 
   .quantity-selector {
-    padding: 0.5rem;
+    width: 100%;
+    max-width: none;
+    margin-bottom: 1rem;
   }
 
   .add-to-cart-btn {
-    padding: 0.75rem;
+    width: 100%;
   }
 }
