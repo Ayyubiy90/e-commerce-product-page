@@ -13,7 +13,7 @@ let cartItems = [];
 // When the page loads
 document.addEventListener("DOMContentLoaded", () => {
   updateCart();
-  updateCartIcon(); // Add this line
+  updateCartIcon();
   document.querySelector(".nav-right").appendChild(cartContainer);
 });
 
@@ -52,7 +52,7 @@ addToCartBtn.addEventListener("click", () => {
     };
     cartItems.push(cartItem);
     updateCart();
-    updateCartIcon(); // Add this line if it's not already there
+    updateCartIcon();
     quantity = 0;
     quantityInput.textContent = quantity;
   }
