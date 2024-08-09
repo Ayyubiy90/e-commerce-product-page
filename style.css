@@ -413,25 +413,31 @@ footer {
     display: block;
     margin-right: 1rem;
     cursor: pointer;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     z-index: 1001;
   }
 
   .hamburger-icon,
   .close-icon {
     font-size: 1.5rem;
+    transition: opacity 0.3s ease;
   }
 
   .close-icon {
     display: none;
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
   }
 
   .hamburger-menu.active .hamburger-icon {
-    display: none;
+    /* display: none; */
+    opacity: 0;
   }
 
   .hamburger-menu.active .close-icon {
     display: block;
+    opacity: 1;
   }
 
   .mobile-menu {

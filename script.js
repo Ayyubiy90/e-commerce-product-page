@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartContainer = document.querySelector(".cart-container");
   const hamburgerMenu = document.querySelector(".hamburger-menu");
   const mobileMenu = document.querySelector(".mobile-menu");
+  const hamburgerIcon = hamburgerMenu.querySelector(".hamburger-icon");
+  const closeIcon = hamburgerMenu.querySelector(".close-icon");
   const navMenu = document.querySelector(".nav-menu");
   const prevButton = document.querySelector(".prev-image");
   const nextButton = document.querySelector(".next-image");
@@ -31,6 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
   hamburgerMenu.addEventListener("click", () => {
     mobileMenu.classList.toggle("show");
     hamburgerMenu.classList.toggle("active");
+
+    if (mobileMenu.classList.contains("show")) {
+      hamburgerIcon.style.display = "none";
+      closeIcon.style.display = "block";
+    } else {
+      hamburgerIcon.style.display = "block";
+      closeIcon.style.display = "none";
+    }
   });
 
   // Close mobile menu when clicking outside
@@ -38,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!mobileMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
       mobileMenu.classList.remove("show");
       hamburgerMenu.classList.remove("active");
+      hamburgerIcon.style.display = "block";
+      closeIcon.style.display = "none";
     }
   });
 
