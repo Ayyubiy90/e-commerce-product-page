@@ -426,8 +426,9 @@ footer {
   .close-icon {
     display: none;
     position: absolute;
-    top: 1.25rem;
-    left: 1.25rem;
+    top: 0.15rem;
+    left: 0.65rem;
+    font-size: 2rem;
   }
 
   .hamburger-menu.active .hamburger-icon {
