@@ -61,7 +61,7 @@ nav {
 }
 
 .nav-menu {
-  display: flex;
+  display: none;
 }
 
 .nav-menu li {
@@ -411,13 +411,26 @@ footer {
 
   .hamburger-menu {
     display: block;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1001;
+  }
+
+  .close-icon {
+    display: none;
     font-size: 1.5rem;
   }
 
-  .nav-menu {
+  .hamburger-menu.active .hamburger-icon {
     display: none;
+  }
+
+  .hamburger-menu.active .close-icon {
+    display: block;
+  }
+
+  .nav-menu {
     position: fixed;
     top: 0;
     left: -250px;
@@ -555,12 +568,13 @@ footer {
 
   /* Cart Container Styles */
   .cart-container {
-    position: fixed;
+    position: absolute;
     top: 80px;
     left: 1rem;
     right: 1rem;
     width: auto;
     max-width: 400px;
     margin: 0 auto;
+    display: none;
   }
 }

@@ -90,7 +90,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Toggle cart display
+  // Toggle mobile menu
+  hamburgerMenu.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+    hamburgerMenu.classList.toggle("active");
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!navMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+      navMenu.classList.remove("show");
+      hamburgerMenu.classList.remove("active");
+    }
+  });
+
+  /// Toggle cart display
   cartIcon.addEventListener("click", () => {
     cartContainer.style.display =
       cartContainer.style.display === "none" ? "block" : "none";
