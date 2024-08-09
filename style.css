@@ -61,7 +61,7 @@ nav {
 }
 
 .nav-menu {
-  display: none;
+  display: flex;
 }
 
 .nav-menu li {
