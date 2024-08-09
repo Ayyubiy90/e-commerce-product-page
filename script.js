@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartIcon = document.querySelector(".cart-icon");
   const cartContainer = document.createElement("div");
   cartContainer.classList.add("cart-container");
+  cartContainer.style.display = "none"; // Hide cart container by default
+  document.querySelector(".nav-right").appendChild(cartContainer);
 
   // New elements for mobile layout
   const hamburgerMenu = document.querySelector(".hamburger-menu");
@@ -89,7 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle cart display
   cartIcon.addEventListener("click", () => {
-    cartContainer.classList.toggle("show");
+    cartContainer.style.display =
+      cartContainer.style.display === "none" ? "block" : "none";
   });
 
   function updateThumbnailActive() {
