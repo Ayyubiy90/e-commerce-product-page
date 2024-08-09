@@ -301,8 +301,8 @@ nav {
 /* Cart Container Styles */
 .cart-container {
   position: absolute;
-  top: 100%;
-  right: 0;
+  top: 13%;
+  right: 2%;
   background-color: var(--color-white);
   width: 360px;
   border-radius: 10px;
