@@ -6,12 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const plusBtn = document.querySelector(".plus-btn");
   const addToCartBtn = document.querySelector(".add-to-cart-btn");
   const cartIcon = document.querySelector(".cart-icon");
-  const cartContainer = document.createElement("div");
-  cartContainer.classList.add("cart-container");
-  cartContainer.style.display = "none"; // Hide cart container by default
-  document.querySelector(".nav-right").appendChild(cartContainer);
-
-  // New elements for mobile layout
+  const cartContainer = document.querySelector(".cart-container");
   const hamburgerMenu = document.querySelector(".hamburger-menu");
   const navMenu = document.querySelector(".nav-menu");
   const prevButton = document.querySelector(".prev-image");
@@ -21,32 +16,38 @@ document.addEventListener("DOMContentLoaded", () => {
   let quantity = 0;
   let currentImageIndex = 0;
   const images = [
-    "image-product-1.jpg",
-    "image-product-2.jpg",
-    "image-product-3.jpg",
-    "image-product-4.jpg",
+    "images/image-product-1.jpg",
+    "images/image-product-2.jpg",
+    "images/image-product-3.jpg",
+    "images/image-product-4.jpg",
   ];
 
   // Initialize
   updateCart();
   updateCartIcon();
-  document.querySelector(".nav-right").appendChild(cartContainer);
 
   // Mobile menu toggle
   hamburgerMenu.addEventListener("click", () => {
     navMenu.classList.toggle("show");
   });
 
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!navMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+      navMenu.classList.remove("show");
+    }
+  });
+
   // Image navigation for mobile
   prevButton.addEventListener("click", () => {
     currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-    mainImage.src = `images/${images[currentImageIndex]}`;
+    mainImage.src = images[currentImageIndex];
     updateThumbnailActive();
   });
 
   nextButton.addEventListener("click", () => {
     currentImageIndex = (currentImageIndex + 1) % images.length;
-    mainImage.src = `images/${images[currentImageIndex]}`;
+    mainImage.src = images[currentImageIndex];
     updateThumbnailActive();
   });
 
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   thumbnailImages.forEach((thumbnail, index) => {
     thumbnail.addEventListener("click", () => {
       currentImageIndex = index;
-      mainImage.src = `images/${images[currentImageIndex]}`;
+      mainImage.src = images[currentImageIndex];
       updateThumbnailActive();
     });
   });
@@ -79,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name: "Fall Limited Edition Sneakers",
         price: 125,
         quantity: quantity,
-        image: "images/image-product-1-thumbnail.jpg",
+        image: images[currentImageIndex],
       };
       cartItems.push(cartItem);
       updateCart();
@@ -117,6 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
       emptyCartMessage.textContent = "Your cart is empty.";
       cartContainer.appendChild(emptyCartMessage);
     } else {
+      const cartItemsContainer = document.createElement("div");
+      cartItemsContainer.classList.add("cart-items");
+
       cartItems.forEach((item, index) => {
         const cartItemElement = document.createElement("div");
         cartItemElement.classList.add("cart-item");
@@ -160,8 +164,10 @@ document.addEventListener("DOMContentLoaded", () => {
         cartItemElement.appendChild(detailsElement);
         cartItemElement.appendChild(deleteBtn);
 
-        cartContainer.appendChild(cartItemElement);
+        cartItemsContainer.appendChild(cartItemElement);
       });
+
+      cartContainer.appendChild(cartItemsContainer);
 
       const checkoutBtn = document.createElement("button");
       checkoutBtn.classList.add("checkout-btn");
